@@ -13,3 +13,17 @@ spec:
           env:
             - name: BROKER_URL
               value: http://broker-ingress.knative-eventing.svc.cluster.local/default/example-broker
+---
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: cloudevents-player
+  annotations:
+    knative-eventing-injection: enabled
+spec:
+  broker: example-broker
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: cloudevents-player
