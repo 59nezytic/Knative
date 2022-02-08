@@ -1,5 +1,5 @@
 ## Knative Version <1.2.0>
-### First, Set Loadbalancer <https://github.com/59nezytic/metalLB>
+### First, Set Loadbalancer at <https://github.com/59nezytic/metalLB>
 ```
 cd Knative
 ```
