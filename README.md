@@ -1,9 +1,11 @@
 ## Knative Version 1.2.0
 ### First, Set Loadbalancer <https://github.com/59nezytic/metalLB>
+```
+cd Knative
+```
 
 ### Install Knative Operator
 ```
-cd Knative
 kubectl apply -f operator.yaml
 kubectl config set-context --current --namespace=default
 kubectl get deployment knative-operator
