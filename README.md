@@ -3,13 +3,14 @@
 
 ### Install Knative Operator
 ```
-kubectl apply -f https://github.com/knative/operator/releases/download/knative-v1.2.0/operator.yaml
+cd Knative
+kubectl apply -f operator.yaml
 kubectl config set-context --current --namespace=default
 kubectl get deployment knative-operator
 ```
 ### Install Knative Serving
 ```
-kubectl apply -f Knative/kfs.yaml
+kubectl apply -f kfs.yaml
 kubectl get po -n knative-serving
 ```
 ### Install Istio
@@ -19,7 +20,7 @@ export PATH=$PWD/bin:$PATH
 istioctl install --set profile=demo -y
 kubectl label namespace default istio-injection=enabled
 kubectl get svc istio-ingressgateway -n istio-system
-kubectl apply -f https://github.com/knative/serving/releases/download/knative-v1.2.0/serving-default-domain.yaml
+kubectl apply -f serving-default-domain.yaml
 ```
 
 ### Install Knative Eventing
