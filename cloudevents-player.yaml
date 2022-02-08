@@ -17,7 +17,7 @@ spec:
 apiVersion: eventing.knative.dev/v1
 kind: Trigger
 metadata:
-  name: cloudevents-player
+  name: cloudevents-trigger
   annotations:
     knative-eventing-injection: enabled
 spec:
