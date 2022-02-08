@@ -39,3 +39,6 @@ chmod +x kn
 mv kn /usr/local/bin
 kn version
 ```
+
+### Knative Tutorial
+https://knative.dev/docs/getting-started/first-service/
