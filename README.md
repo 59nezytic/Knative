@@ -30,6 +30,7 @@ kubectl apply -f serving-default-domain.yaml
 kubectl apply -f kfe.yaml
 kubectl get deployment -n knative-eventing
 kubectl apply -f in-memory-channel.yaml
+kubectl apply -f mt-channel-broker.yaml
 ```
 
 ### Install kn
