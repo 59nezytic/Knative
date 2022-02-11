@@ -57,4 +57,8 @@ kubectl apply -f channel-consolidated.yaml
 
 # Install the Kafka "Distributed" Channel
 kubectl apply -f channel-distributed.yaml
+
+kubectl apply -f eventing-kafka-controller.yaml
+kubectl apply -f eventing-kafka-broker.yaml
+kubectl apply -f eventing-kafka-sink.yaml
 ```
