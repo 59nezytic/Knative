@@ -45,3 +45,16 @@ kn version
 
 ### Knative Tutorial
 https://knative.dev/docs/getting-started/first-service/
+
+
+### Kafka
+```
+# Install the Kafka Source
+kubectl apply -f source.yaml
+
+# Install the Kafka "Consolidated" Channel
+kubectl apply -f channel-consolidated.yaml
+
+# Install the Kafka "Distributed" Channel
+kubectl apply -f channel-distributed.yaml
+```
