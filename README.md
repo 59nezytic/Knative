@@ -1,11 +1,12 @@
 ## Knative Version <1.2.0>
-### First, Set Loadbalancer at <https://github.com/59nezytic/metalLB>
+### First, Set Loadbalancer at <https://github.com/59nezytic/metalLB>, and Install Ingress-controller
 ```
-cd Knative
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/cloud/deploy.yaml
 ```
 
 ### Install Knative Operator
 ```
+cd Knative
 kubectl apply -f operator.yaml
 kubectl config set-context --current --namespace=default
 kubectl get deployment knative-operator
