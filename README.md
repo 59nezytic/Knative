@@ -71,16 +71,15 @@ kubectl get pods
 kubectl apply -f kafka/event_source.yaml
 kubectl logs {EVENT_SOURCE_POD_ID}
 (Output Exapmle: {"level":"info","ts":"2020-05-28T10:39:42.104Z","caller":"adapter/adapter.go:81","msg":"Starting with config: ","Topics":".","ConsumerGroup":"...","SinkURI":"...","Name":".","Namespace":"."})
-```
 
-```
+
 # Create Kafka Topic Message
 kubectl -n kafka run kafka-producer -ti --image=strimzi/kafka:0.14.0-kafka-2.3.0 --rm=true --restart=Never -- bin/kafka-console-producer.sh --broker-list my-cluster-kafka-bootstrap.my-kafka-project:9092 --topic knative-demo-topic
 
 Enter: {"msg": "This is a test!"}
-```
 
-```
+
+
 # Edit configmap "config-logging"
 kubectl edit cm -n knative-eventing config-logging
 
@@ -108,17 +107,17 @@ data:
         "callerEncoder": ""
       }
     }
-```
 
-```
+
+
 # Restart Kafka Source Service
 kubectl delete po {KAFKA_SOURCE_POD_ID}
 kubectl logs po {NEW_KAFKA_SOURCE_POD_ID}
 (Output Example: {"level":"debug","ts":"2020-05-28T10:40:29.400Z","caller":"kafka/consumer_handler.go:77","msg":"Message claimed","topic":".","value":"."}
 {"level":"debug","ts":"2020-05-28T10:40:31.722Z","caller":"kafka/consumer_handler.go:89","msg":"Message marked","topic":".","value":"."})
-```
 
-```
+
+
 # Check Message
 kubectl logs {KAFKA_EVENT_DISPLAY} -c user-container
 (Output Exapmle: 
