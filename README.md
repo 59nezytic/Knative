@@ -42,6 +42,7 @@ kn version
 ```
 
 ### Kafka (https://knative.dev/docs/eventing/sources/kafka-source/#verify)
+* Install Kafka
 ```
 # Install Kafka "Distributed" Channel
 kubectl apply -f kafka/channel-distributed.yaml
@@ -56,7 +57,7 @@ kubectl apply -f kafka/eventing-kafka-broker.yaml
 kubectl apply -f kafka/kafka-source.yaml
 
 ```
-
+* Kafka Example
 ```
 # Setting Kafka Topic
 kubectl apply -f kafka/kafka-topic.yaml
