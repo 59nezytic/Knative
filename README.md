@@ -42,6 +42,31 @@ kn version
 ```
 
 ### Kafka (https://knative.dev/docs/eventing/sources/kafka-source/#verify)
+* Install Strimzi
+```
+wget https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.24.0/strimzi-0.24.0.tar.gz
+kubectl create ns kafka
+
+cd strimzi-0.24.0/
+sed -i 's/namespace: .*/namespace: kafka/' install/cluster-operator/*RoleBinding*.yaml
+
+kubectl create ns my-kafka-project
+
+vim install/cluster-operator/060-Deployment-strimzi-cluster-operator.yaml
+        env:
+        - name: STRIMZI_NAMESPACE
+          value: my-kafka-project --> Add
+          #valueFrom:   --> Annotation
+          #  fieldRef:  --> Annotation
+          #    fieldPath: metadata.namespace  --> Annotation
+          
+kubectl apply -f install/cluster-operator/ -n kafka
+kubectl create -f install/cluster-operator/020-RoleBinding-strimzi-cluster-operator.yaml -n my-kafka-project
+kubectl create -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
+kubectl get pods -n kafka
+
+
+```
 * Install Kafka
 ```
 # Install Kafka "Distributed" Channel
