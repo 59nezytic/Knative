@@ -42,7 +42,7 @@ kn version
 ```
 
 ### Kafka (https://knative.dev/docs/eventing/sources/kafka-source/#verify)
-* Install Strimzi
+* Install Strimzi (https://sotl.tistory.com/292)
 ```
 wget https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.24.0/strimzi-0.24.0.tar.gz
 kubectl create ns kafka
@@ -65,7 +65,13 @@ kubectl create -f install/cluster-operator/020-RoleBinding-strimzi-cluster-opera
 kubectl create -f install/cluster-operator/031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml -n my-kafka-project
 kubectl get pods -n kafka
 
+cd ../strimzi
+kubectl apply -f sc.yaml
+kubectl apply -f pv.yaml
+kubectl apply -f kafka_cluster.yaml
 
+kubectl get pods -n my-kafka-project
+kubectl get svc -n my-kafka-project
 ```
 * Install Kafka
 ```
