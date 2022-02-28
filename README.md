@@ -24,6 +24,7 @@ export PATH=$PWD/bin:$PATH
 istioctl install --set profile=demo -y
 kubectl label namespace default istio-injection=enabled
 kubectl get svc istio-ingressgateway -n istio-system
+cd ..
 kubectl apply -f istio/serving-default-domain.yaml
 ```
 
