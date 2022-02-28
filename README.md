@@ -19,6 +19,7 @@ kubectl get po -n knative-serving
 ### Install Istio
 ```
 curl -L https://istio.io/downloadIstio | sh -
+cd istio-{VERSION}/
 export PATH=$PWD/bin:$PATH
 istioctl install --set profile=demo -y
 kubectl label namespace default istio-injection=enabled
