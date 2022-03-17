@@ -77,8 +77,13 @@ kubectl get svc -n my-kafka-project
 ```
 * Install Kafka
 ```
-# Install Kafka "Distributed" Channel
-kubectl apply -f kafka/channel-distributed.yaml
+# Install Kafka Source
+kubectl apply -f kafka/eventing-kafka-source.yaml
+
+kubectl apply -f config/
+
+# Install Kafka "Consolidated" Channel
+kubectl apply -f kafka/channel-consolidated.yaml
 
 # Install Eventing Kafka Controller
 kubectl apply -f kafka/eventing-kafka-controller.yaml
@@ -86,9 +91,8 @@ kubectl apply -f kafka/eventing-kafka-controller.yaml
 # Install Eventing Kafka Broker
 kubectl apply -f kafka/eventing-kafka-broker.yaml
 
-# Install Kafka Source
-kubectl apply -f kafka/kafka-source.yaml
-
+# Install Eventing Kafka Sink
+kubectl apply -f kafka/eventing-kafka-sink.yaml
 ```
 * Kafka Example
 ```
@@ -96,15 +100,17 @@ kubectl apply -f kafka/kafka-source.yaml
 kubectl apply -f kafka/kafka-topic.yaml
 kubectl -n kafka get kafkatopics.kafka.strimzi.io
 
+# Setting Kafka Broker
+kubectl apply -f kafka/kafka-broker.yaml
+kubectl apply -f kafka/kafka-broker-cm.yaml
+kubectl apply -f kafka/kafka-broker-dataplane.yaml
+
+# Setting Kafka Trigger
+kubectl apply -f kafka/kafka-trigger.yaml
+
 # Setting Kafka Event Display Service
 kubectl apply -f kafka/event_display.yaml
 kubectl get pods
-
-# Setting Kafka Event Source Service
-kubectl apply -f kafka/event_source.yaml
-kubectl logs {EVENT_SOURCE_POD_ID}
-(Output Exapmle: {"level":"info","ts":"2020-05-28T10:39:42.104Z","caller":"adapter/adapter.go:81","msg":"Starting with config: ","Topics":".","ConsumerGroup":"...","SinkURI":"...","Name":".","Namespace":"."})
-
 
 # Create Kafka Topic Message
 kubectl -n kafka run kafka-producer -ti --image=strimzi/kafka:0.14.0-kafka-2.3.0 --rm=true --restart=Never -- bin/kafka-console-producer.sh --broker-list my-cluster-kafka-bootstrap.my-kafka-project:9092 --topic knative-demo-topic
