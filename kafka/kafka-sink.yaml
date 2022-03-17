@@ -1,0 +1,9 @@
+apiVersion: eventing.knative.dev/v1alpha1
+kind: KafkaSink
+metadata:
+  name: my-kafka-sink
+  namespace: default
+spec:
+  topic: knative-demo-topic
+  bootstrapServers:
+   - my-cluster-kafka-bootstrap.my-kafka-project:9092

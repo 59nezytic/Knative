@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-kafka-broker-data-plane
+  namespace: knative-eventing
+data:
+  # Some configurations omitted ...
+  config-kafka-broker-consumer.properties: |
+    # Some configurations omitted ...
+
+    # Commit the offset every 5000 millisecods (5 seconds)
+    auto.commit.interval.ms=5000
