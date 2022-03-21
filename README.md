@@ -80,7 +80,7 @@ $ kubectl get svc -n my-kafka-project
 # Install Kafka Source
 $ kubectl apply -f kafka/eventing-kafka-source.yaml
 
-$ kubectl apply -f config/
+$ kubectl apply -f kafka/config/
 
 # Install Kafka "Consolidated" Channel
 $ kubectl apply -f kafka/channel-consolidated.yaml
