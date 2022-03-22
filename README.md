@@ -97,8 +97,8 @@ $ kubectl apply -f kafka/eventing-kafka-sink.yaml
 * Kafka Example
 ```
 # Setting Kafka Topic
-$ kubectl apply -f kafka/kafka-topic.yaml
-$ kubectl -n kafka get kafkatopics.kafka.strimzi.io
+$ kubectl apply -f demo/knative-demo-topic.yaml
+$ kubectl -n my-kafka-project get kafkatopics.kafka.strimzi.io
 
 # Setting Kafka Broker
 $ kubectl apply -f kafka/kafka-broker.yaml
@@ -109,7 +109,7 @@ $ kubectl apply -f kafka/kafka-broker-dataplane.yaml
 $ kubectl apply -f kafka/kafka-trigger.yaml
 
 # Setting Kafka Event Display Service
-$ kubectl apply -f kafka/event_display.yaml
+$ kubectl apply -f demo/event_display.yaml
 $ kubectl get pods
 
 # Create Kafka Topic Message
