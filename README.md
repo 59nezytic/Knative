@@ -96,6 +96,9 @@ $ kubectl apply -f kafka/eventing-kafka-sink.yaml
 ```
 * Kafka Example
 ```
+# Create Kafka Source
+$ kubectl apply -f kafka/kafka-source.yaml
+
 # Setting Kafka Topic
 $ kubectl apply -f demo/knative-demo-topic.yaml
 $ kubectl -n my-kafka-project get kafkatopics.kafka.strimzi.io
