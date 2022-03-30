@@ -98,6 +98,7 @@ $ kubectl apply -f kafka/eventing-kafka-sink.yaml
 ```
 # Create Kafka Source
 $ kubectl apply -f kafka/kafka-source.yaml
+$ kubectl apply -f kafka/kafka-source-dispatcher.yaml
 
 # Setting Kafka Topic
 $ kubectl apply -f demo/knative-demo-topic.yaml
