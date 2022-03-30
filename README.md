@@ -182,3 +182,9 @@ Data,
     }
 )
 ```
+
+* Using Kiali
+```
+$ cd istio-{VERSION}/
+$ kubectl apply -f samples/addons
+```
